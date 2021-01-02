@@ -7,13 +7,13 @@
   "minimumCoreVersion": "0.7.6",
   "compatibleCoreVersion": "0.7.9",
   "scripts": [ 
-        "hlo-import.js"
+        "hlo-importer.js"
     ],
   "styles": [],
   "packs": [],
   "url": "https://github.com/zarmstrong/hlo-importer",
   "manifest": "https://raw.githubusercontent.com/zarmstrong/hlo-importer/main/module.json",
-  "download": "https://github.com/zarmstrong/hlo-importer/archive/hlo-import-0.1.0.zip",
+  "download": "https://github.com/zarmstrong/hlo-importer/archive/hlo-importer-0.1.0.zip",
   "license": "MIT",
   "readme": "https://github.com/zarmstrong/hlo-importer",
   "bugs": "https://github.com/zarmstrong/hlo-importer/issues",
