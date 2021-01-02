@@ -16,14 +16,14 @@ Please be aware that this module attempts to match Herolab Online items to Found
 
 ### Getting the Element Token from HLO
 
-Step 1:
-	![Click the Kebab menu on the character you wish to export](get-element-id-step1.webp)
+Step 1:<br>
+![Click the Kebab menu on the character you wish to export](get-element-id-step1.webp)
 
-Step 2:
-	![Click Export/Integrate](get-element-id-step2.webp)
+Step 2:<br>
+![Click Export/Integrate](get-element-id-step2.webp)
 
-Step 3:
-	![Click Get Element Token](get-element-id-step3.webp)
+Step 3:<br>
+![Click Get Element Token](get-element-id-step3.webp)
 
-Step 4:
-	![Click Copy to Clipboard](get-element-id-step4.webp)
+Step 4:<br>
+![Click Copy to Clipboard](get-element-id-step4.webp)
