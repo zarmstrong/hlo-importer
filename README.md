@@ -16,14 +16,18 @@ Please be aware that this module attempts to match Herolab Online items to Found
 
 ### Getting the Element Token from HLO
 
-Step 1:<br>
+Step 1: Click the Kebab menu on the character you wish to export<br>
 ![Click the Kebab menu on the character you wish to export](get-element-id-step1.webp)
 
-Step 2:<br>
+Step 2: Click Export/Integrate<br>
 ![Click Export/Integrate](get-element-id-step2.webp)
 
-Step 3:<br>
+Step 3: Click Get Element Token<br>
 ![Click Get Element Token](get-element-id-step3.webp)
 
-Step 4:<br>
+Step 4: Click Copy to Clipboard<br>
 ![Click Copy to Clipboard](get-element-id-step4.webp)
+
+#### Special Thanks
+
+Special thanks to @Doctor-Unspeakable for his [Pathbuilder module](https://github.com/Doctor-Unspeakable/foundry-pathbuilder2e-import) for being the basis of this Foundry module.
