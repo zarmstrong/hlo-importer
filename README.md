@@ -1,6 +1,6 @@
 # Herolab Online PF2e Import Tool
 
-A module for Foundry VTT importing Herolab Online 2e characters.
+A module for Foundry VTT that converts and imports Herolab Online 2e characters.
 
 Please be aware that this module attempts to match Herolab Online items to Foundry items, and will not perform perfectly in all cases due to database differences.
 
