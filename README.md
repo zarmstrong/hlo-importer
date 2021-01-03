@@ -29,10 +29,10 @@ Step 2: Click Export/Integrate<br>
 ![Click Export/Integrate](get-element-id-step2.webp)
 
 Step 3: Click Get User Token<br>
-![Click Get User Token](get-user-token-step3.webp)
+![Click Get User Token](get-user-token-step3.webp =300)
 
 Step 4: Click Copy to Clipboard<br>
-![Click Copy to Clipboard](get-user-token-step4.webp)
+![Click Copy to Clipboard](get-user-token-step4.webp =300)
 
 ### Getting the Element Token from HLO
 
@@ -45,10 +45,10 @@ Step 2: Click Export/Integrate<br>
 ![Click Export/Integrate](get-element-id-step2.webp)
 
 Step 3: Click Get Element Token<br>
-![Click Get Element Token](get-element-id-step3.webp)
+![Click Get Element Token](get-element-id-step3.webp =300)
 
 Step 4: Click Copy to Clipboard<br>
-![Click Copy to Clipboard](get-element-id-step4.webp)
+![Click Copy to Clipboard](get-element-id-step4.webp =300)
 
 #### Special Thanks
 
