@@ -1,3 +1,7 @@
+## 0.2.1 (Jan 3, 2021)
+
+* Made a proper release
+
 ## 0.2.0 (Jan 3, 2021)
 
 * Added support for GMs to use their own User Token instead of my User Token (default). This value can be set through the module settings page. It is currently optional. I expect it will be mandatory at some time in the future.
