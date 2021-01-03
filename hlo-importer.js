@@ -1,4 +1,5 @@
 // its a single page as I've been testing it in macros.
+let debug = false
 
 Hooks.on('renderActorSheet', function(obj, html){
     if (obj.actorType === 'character')
@@ -95,10 +96,14 @@ function convertHLOCharacter(targetActor, buildID){
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let responseJSON = JSON.parse(this.responseText);
-        console.log(responseJSON);
-        console.log(Object.keys(responseJSON.characterData).length)
+        if (debug) {
+            console.log(responseJSON);
+          console.log(Object.keys(responseJSON.characterData).length)
+        }
         if (Object.keys(responseJSON.characterData).length>1){
-          checkCharacterIsCorrect(targetActor, responseJSON);
+          if (debug)
+            console.log("Calling checkHLOCharacterIsCorrect")
+          checkHLOCharacterIsCorrect(targetActor, responseJSON);
         } else {
           ui.notifications.warn("Unable to convert. Please file a bug with the Conversion ID: " + responseJSON.ConversionID);
           return;
@@ -111,8 +116,11 @@ function convertHLOCharacter(targetActor, buildID){
 
 }
 
-function checkCharacterIsCorrect(targetActor,responseJSON){
-
+function checkHLOCharacterIsCorrect(targetActor,responseJSON){
+  if (debug){
+    console.log("in checkHLOCharacterIsCorrect")
+    console.log(responseJSON)
+  }
   let correctCharacter = false;
   charImport = responseJSON.characterData
   conversionData=responseJSON.conversionData
@@ -135,7 +143,7 @@ function checkCharacterIsCorrect(targetActor,responseJSON){
     default: "yes",
     close: html => {
       if (correctCharacter) {
-        importCharacter(targetActor, charImport);
+        importHLOCharacter(targetActor, charImport);
       }
     }
   }).render(true);
@@ -143,7 +151,7 @@ function checkCharacterIsCorrect(targetActor,responseJSON){
   
 }
 
-async function importCharacter(targetActor, charImport){
+async function importHLOCharacter(targetActor, charImport){
   console.log(charImport)  
   targetActor.importFromJSON(JSON.stringify(charImport))
 }
