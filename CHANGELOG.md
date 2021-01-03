@@ -1,3 +1,9 @@
+## 0.1.1 (Jan 2, 2021)
+
+* Change Import icon to flask to imitate the flask that HLO uses for it's favicon. 
+* Changed the menu title to HLO (from Import from HLO) to save some space. Title bars get pretty crowded if you have a lot of other modules that use that space.
+* Prevent Import button from showing up on anything other than character sheets
+
 ## 0.1.0 (Jan 2, 2021)
 
 * Initial Release
