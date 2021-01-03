@@ -4,6 +4,10 @@ A module for Foundry VTT that converts and imports Herolab Online 2e characters.
 
 Please be aware that this module attempts to match Herolab Online items to Foundry items, and will not perform perfectly in all cases due to database differences.
 
+## Important Note
+
+This importer relies on my other tool, [Herolab to Foundry VTT PF2](https://github.com/zarmstrong/hlo-to-fvtt-pf2-public) to do the actual conversion process. If you have problems with the conversion, please be sure to [open a bug report on that project](https://github.com/zarmstrong/hlo-to-fvtt-pf2-public/issues).
+
 ## Guide for Importing from Herolab Online
 
 1) Install this module or get your GM to do it in Foundry VTT.
@@ -14,7 +18,25 @@ Please be aware that this module attempts to match Herolab Online items to Found
 6) Verify the character name, class and level match your expectations. Take note of any messages from the conversion process, as you may need to make manual changes. When you're ready, click Proceed.
 
 
+### Getting your User Token from HLO
+
+(NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
+
+Step 1: Click the Kebab menu on the character you wish to export<br>
+![Click the Kebab menu on the character you wish to export](get-element-id-step1.webp)
+
+Step 2: Click Export/Integrate<br>
+![Click Export/Integrate](get-element-id-step2.webp)
+
+Step 3: Click Get User Token<br>
+![Click Get User Token](get-user-token-step3.webp)
+
+Step 4: Click Copy to Clipboard<br>
+![Click Copy to Clipboard](get-user-token-step4.webp)
+
 ### Getting the Element Token from HLO
+
+(NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
 
 Step 1: Click the Kebab menu on the character you wish to export<br>
 ![Click the Kebab menu on the character you wish to export](get-element-id-step1.webp)
