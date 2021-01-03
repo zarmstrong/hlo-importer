@@ -1,20 +1,35 @@
-// its a single page as I've been testing it in macros.
-let debug = false
+let debug = true
+
+Hooks.on('ready', async function() {
+    game.settings.register('hlo-importer', 'userToken', {
+        name : "User Token (optional)",
+        hint : "Please enter your personal user token. A user token allows external tools (like this one) to access the HLO server and perform export operations.",
+        scope : 'world',
+        config : true,
+        type : String,
+        default : '',
+        onChange: value =>  location.reload()
+    });
+});
 
 Hooks.on('renderActorSheet', function(obj, html){
+    
     if (obj.actorType === 'character')
     {
       let element = html.find(".window-header .window-title");
       if (element.length != 1) return;
     
       let button = $(`<a class="popout" style><i class="fas fa-flask"></i>HLO</a>`);
-      button.on('click', () => beginHLOImport(obj.object));
+      let userToken = game.settings.get('hlo-importer', 'userToken')
+      if (debug)
+        console.log(`hlo-importer token: ${userToken}`)
+      button.on('click', () => beginHLOImport(obj.object,userToken));
       element.after(button);
     }
   }
 );
   
-function beginHLOImport(targetActor){
+function beginHLOImport(targetActor,userToken){
 
   new Dialog({
     title: `Herolab Online Import`,
@@ -82,7 +97,7 @@ function beginHLOImport(targetActor){
          
          let HLOElementID= html.find('[id="textBoxElementID"]')[0].value;
  
-         convertHLOCharacter(targetActor, HLOElementID);
+         convertHLOCharacter(targetActor, HLOElementID,userToken);
   
       }
     }
@@ -90,28 +105,55 @@ function beginHLOImport(targetActor){
 
 }
 
-function convertHLOCharacter(targetActor, buildID){
+function convertHLOCharacter(targetActor, HLOElementID, userToken){
 
+    let error=false
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let responseJSON = JSON.parse(this.responseText);
         if (debug) {
             console.log(responseJSON);
-          console.log(Object.keys(responseJSON.characterData).length)
+          if (responseJSON.hasOwnProperty("error"))
+            error=true
+          else
+            if (debug)
+              console.log(Object.keys(responseJSON.characterData).length)
         }
-        if (Object.keys(responseJSON.characterData).length>1){
-          if (debug)
-            console.log("Calling checkHLOCharacterIsCorrect")
-          checkHLOCharacterIsCorrect(targetActor, responseJSON);
-        } else {
-          ui.notifications.warn("Unable to convert. Please file a bug with the Conversion ID: " + responseJSON.ConversionID);
-          return;
+        if (error){
+          new Dialog({
+            title: `Herolab Online Import`,
+            content: `
+                 <div>
+                    <h3>Error</h3>
+                    <p>${responseJSON.error}<p>
+                 </div><br>`,
+            buttons: {
+              yes: {
+                icon: "<i class='fas fa-check'></i>",
+                label: `Ok`              }
+            },
+            default: "yes"
+          }).render(true);
         }
+        else {
+          if (Object.keys(responseJSON.characterData).length>1){
+            if (debug)
+              console.log("Calling checkHLOCharacterIsCorrect")
+            checkHLOCharacterIsCorrect(targetActor, responseJSON);
+          } else {
+            ui.notifications.warn("Unable to convert. Please file a bug with the Conversion ID: " + responseJSON.ConversionID);
+            return;
+        }
+      }
         
       }
     };
-    xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(buildID), true);
+    console.log(`usertoken '${userToken}'`)
+    if (userToken == "")
+      xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID), true);
+    else
+      xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&userToken="+encodeURIComponent(userToken), true);
     xmlhttp.send();
 
 }

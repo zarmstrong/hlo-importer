@@ -1,3 +1,8 @@
+## 0.2.0 (Jan 3, 2021)
+
+* Added support for GMs to use their own User Token instead of my User Token (default). This value can be set through the module settings page. It is currently optional. I expect it will be mandatory at some time in the future.
+* Added rudamentary error handling
+
 ## 0.1.2 (Jan 3, 2021)
 
 * Change function names; I think they were possibly conflicting with Import from Pathbuilder 2e
