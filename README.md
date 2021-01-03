@@ -16,7 +16,7 @@ This importer relies on my other tool, [Herolab to Foundry VTT PF2](https://gith
 4) Enter the Element Token you got from Herolab Online and click import.
 5) Wait about 30-45 seconds.
 6) Verify the character name, class and level match your expectations. Take note of any messages from the conversion process, as you may need to make manual changes. When you're ready, click Proceed.
-
+***
 ## Getting your User Token from HLO
 
 (NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
@@ -32,7 +32,7 @@ Step 3: Click Get User Token<br>
 
 Step 4: Click Copy to Clipboard<br>
 ![Click Copy to Clipboard](get-user-token-step4.webp)
-
+***
 ## Getting the Element Token from HLO
 
 (NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
