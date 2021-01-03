@@ -1,1 +1,3 @@
 *.PNG
+artifacts/
+build-release.txt
