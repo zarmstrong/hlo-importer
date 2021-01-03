@@ -5,11 +5,11 @@ A module for Foundry VTT that converts and imports Herolab Online 2e characters.
 Please be aware that this module attempts to match Herolab Online items to Foundry items, and will not perform perfectly in all cases due to database differences.
 
 ## Navigation
-1. (Important Note)[#important-note]
-2. (Guide for Importing from Herolab Online)[#guide-for-importing-from-herolab-online]
-3. (Getting your User Token from HLO)[#getting-your-user-token-from-hlo]
-4. (Getting the Element Token from HLO)[#getting-the-element-token-from-hlo]
-5. (Special Thanks)[#special-thanks]
+1. [Important Note](#important-note)
+2. [Guide for Importing from Herolab Online](#guide-for-importing-from-herolab-online)
+3. [Getting your User Token from HLO](#getting-your-user-token-from-hlo)
+4. [Getting the Element Token from HLO](#getting-the-element-token-from-hlo)
+5. [Special Thanks](#special-thanks)
 
 ## Important Note
 
