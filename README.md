@@ -11,11 +11,11 @@ Please be aware that this module attempts to match Herolab Online items to Found
 4. [Getting the Element Token from HLO](#getting-the-element-token-from-hlo)
 5. [Special Thanks](#special-thanks)
 
-## Important Note
+## Important Note [^](#herolab-online-pf2e-import-tool)
 
 This importer relies on my other tool, [Herolab to Foundry VTT PF2](https://github.com/zarmstrong/hlo-to-fvtt-pf2-public) to do the actual conversion process. If you have problems with the conversion, please be sure to [open a bug report on that project](https://github.com/zarmstrong/hlo-to-fvtt-pf2-public/issues).
 
-## Guide for Importing from Herolab Online
+## Guide for Importing from Herolab Online [^](#herolab-online-pf2e-import-tool)
 
 1) Install this module or get your GM to do it in Foundry VTT.
 2) Get the Element Token for the character you wish to import 
@@ -24,7 +24,7 @@ This importer relies on my other tool, [Herolab to Foundry VTT PF2](https://gith
 5) Wait about 30-45 seconds.
 6) Verify the character name, class and level match your expectations. Take note of any messages from the conversion process, as you may need to make manual changes. When you're ready, click Proceed.
 ***
-## Getting your User Token from HLO
+## Getting your User Token from HLO [^](#herolab-online-pf2e-import-tool)
 
 (NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
 
@@ -40,7 +40,7 @@ Step 3: Click Get User Token<br>
 Step 4: Click Copy to Clipboard<br>
 ![Click Copy to Clipboard](get-user-token-step4.webp)
 ***
-## Getting the Element Token from HLO
+## Getting the Element Token from HLO [^](#herolab-online-pf2e-import-tool)
 
 (NOTE: If your character(s) are in a campaign, the steps are slightly different than below. In the campaign, open the character and click on the gear in the top right corner. Then follow the steps below starting at step 2)
 
@@ -57,6 +57,6 @@ Step 4: Click Copy to Clipboard<br>
 ![Click Copy to Clipboard](get-element-id-step4.webp)
 
 *** 
-#### Special Thanks
+#### Special Thanks [^](#herolab-online-pf2e-import-tool)
 
 Special thanks to @Doctor-Unspeakable for his [Pathbuilder module](https://github.com/Doctor-Unspeakable/foundry-pathbuilder2e-import) for being the basis of this Foundry module.
