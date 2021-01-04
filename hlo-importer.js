@@ -1,4 +1,4 @@
-let debug = true
+let debug = false
 
 Hooks.on('ready', async function() {
     game.settings.register('hlo-importer', 'userToken', {

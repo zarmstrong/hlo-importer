@@ -1,3 +1,7 @@
+## 0.2.2 (Jan 4, 2021)
+
+* disable debug mode
+
 ## 0.2.1 (Jan 3, 2021)
 
 * Made a proper release
