@@ -30,7 +30,7 @@ Hooks.on('renderActorSheet', function(obj, html){
 );
   
 function beginHLOImport(targetActor,userToken){
-
+  let applyChanges=false;
   new Dialog({
     title: `Herolab Online Import`,
     content: `

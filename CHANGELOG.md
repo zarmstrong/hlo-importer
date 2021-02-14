@@ -1,3 +1,7 @@
+## 0.2.3 (Feb 14, 2021)
+
+* fix cancel button not working
+
 ## 0.2.2 (Jan 4, 2021)
 
 * disable debug mode
