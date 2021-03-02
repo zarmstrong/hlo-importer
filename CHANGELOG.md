@@ -1,3 +1,7 @@
+## 0.2.4 (Mar 01, 2021)
+
+* add support for bug reporter module
+
 ## 0.2.3 (Feb 14, 2021)
 
 * fix cancel button not working
