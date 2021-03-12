@@ -13,11 +13,15 @@ Hooks.on('ready', async function() {
 });
 
 Hooks.on('renderActorSheet', function(obj, html){
+
+    // Only inject the link if the actor is of type "character" and the user has permission to update it
+    const actor = obj.actor;
+    if (debug)
+      console.log(`hlo-importer actor type: ${actor.data.type}`)    
+    if (!(actor.data.type === "character" && actor.can(game.user, "update"))) return;
     
-    if (obj.actorType === 'character')
-    {
-      let element = html.find(".window-header .window-title");
-      if (element.length != 1) return;
+    let element = html.find(".window-header .window-title");
+    if (element.length != 1) return;
     
       let button = $(`<a class="popout" style><i class="fas fa-flask"></i>HLO</a>`);
       let userToken = game.settings.get('hlo-importer', 'userToken')
@@ -25,7 +29,6 @@ Hooks.on('renderActorSheet', function(obj, html){
         console.log(`hlo-importer token: ${userToken}`)
       button.on('click', () => beginHLOImport(obj.object,userToken));
       element.after(button);
-    }
   }
 );
   
@@ -114,8 +117,11 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
         let responseJSON = JSON.parse(this.responseText);
         if (debug) {
             console.log(responseJSON);
-          if (responseJSON.hasOwnProperty("error"))
+          if (responseJSON.hasOwnProperty("error")) {
+            if (debug)
+               console.log("error found in response")
             error=true
+          }
           else
             if (debug)
               console.log(Object.keys(responseJSON.characterData).length)

@@ -1,3 +1,7 @@
+## 0.2.5 (Mar 12, 2021)
+
+* update to support PF2e 1.11.13
+
 ## 0.2.4 (Mar 01, 2021)
 
 * add support for bug reporter module
