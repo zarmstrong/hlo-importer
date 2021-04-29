@@ -1,3 +1,9 @@
+## 0.3.0 (Apr 28, 2021)
+
+* add hlo importer and gamesystem version to js
+* add color to console logging
+* add hlo importer and gamesystem version to requests to check for compatability breaking features
+
 ## 0.2.5 (Mar 12, 2021)
 
 * update to support PF2e 1.11.13
