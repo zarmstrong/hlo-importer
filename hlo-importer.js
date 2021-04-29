@@ -1,5 +1,5 @@
 let debug = false;
-const hloiVer="0.3.0";
+const hloiVer="0.3.1";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -123,17 +123,17 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let responseJSON = JSON.parse(this.responseText);
-        if (debug) {
+        if (debug) 
             console.log("%cHLO Importer | %c"+responseJSON,color1,color4);
-          if (responseJSON.hasOwnProperty("error")) {
-            if (debug)
-               console.log("%cHLO Importer | %cerror found in response",color1,color4)
-            error=true
-          }
-          else
-            if (debug)
-              console.log("%cHLO Importer | %c"+Object.keys(responseJSON.characterData).length,color1,color4)
+        if (responseJSON.hasOwnProperty("error")) {
+          if (debug)
+             console.log("%cHLO Importer | %cerror found in response",color1,color4)
+          error=true
         }
+        else
+          if (debug)
+            console.log("%cHLO Importer | %c"+Object.keys(responseJSON.characterData).length,color1,color4)
+
         if (error){
           new Dialog({
             title: `Herolab Online Import`,
@@ -161,7 +161,7 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
         }
       }
         
-      console.log("%cHLO Importer | %creadyState: "+this.readyState,color1,color4)
+      // console.log("%cHLO Importer | %creadyState: "+this.readyState,color1,color4)
       }
     };
     console.log("%cHLO Importer | %cusertoken: " + userToken,color1,color4)

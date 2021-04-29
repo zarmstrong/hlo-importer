@@ -1,3 +1,7 @@
+## 0.3.1 (Apr 28, 2021)
+
+* fix bug that was preventing error messages from showing
+
 ## 0.3.0 (Apr 28, 2021)
 
 * add hlo importer and gamesystem version to js
