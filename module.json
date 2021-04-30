@@ -3,7 +3,7 @@
   "title": "Herolab Online PF2e Import Tool",
   "description": "This module adds a button to the top of player character sheets allowing them to quickly import their character from Herolab Online.",
   "author": "slate",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "minimumCoreVersion": "0.7.6",
   "compatibleCoreVersion": "0.7.9",
   "scripts": [ 
@@ -16,7 +16,7 @@
   ],
   "url": "https://github.com/zarmstrong/hlo-importer",
   "manifest": "https://raw.githubusercontent.com/zarmstrong/hlo-importer/main/module.json",
-  "download": "https://github.com/zarmstrong/hlo-importer/releases/download/hlo-importer-0.3.2/hlo-importer-0.3.2.zip",
+  "download": "https://github.com/zarmstrong/hlo-importer/releases/download/hlo-importer-0.3.3/hlo-importer-0.3.3.zip",
   "license": "MIT",
   "readme": "https://github.com/zarmstrong/hlo-importer",
   "bugs": "https://github.com/zarmstrong/hlo-importer/issues",
