@@ -5,38 +5,48 @@ const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
 const color3='color: #ffffff'; //white
 const color4='color: #cccccc'; //gray
+const color5='color: #ff0000'; //red
 
 
 Hooks.on('ready', async function() {
-  console.log("%cHLO Importer | %cinitializing",color1,color4);
-    game.settings.register('hlo-importer', 'userToken', {
-        name : "User Token (optional)",
-        hint : "Please enter your personal user token. A user token allows external tools (like this one) to access the HLO server and perform export operations.",
-        scope : 'world',
-        config : true,
-        type : String,
-        default : '',
-        onChange: value =>  location.reload()
-    });
+  if (game.system.id!="pf2e")
+  {
+    console.log("%cHLO Importer | %cWrong game system. %cNot enabling.",color1,color5,color4);
+  } else {
+    console.log("%cHLO Importer | %cinitializing",color1,color4);
+      game.settings.register('hlo-importer', 'userToken', {
+          name : "User Token (optional)",
+          hint : "Please enter your personal user token. A user token allows external tools (like this one) to access the HLO server and perform export operations.",
+          scope : 'world',
+          config : true,
+          type : String,
+          default : '',
+          onChange: value =>  location.reload()
+      });
+  }
 });
 
 Hooks.on('renderActorSheet', function(obj, html){
-
+  if (game.system.id!="pf2e")
+  {
+    console.log("%cHLO Importer | %cWrong game system. %cNot adding HLO button to actor sheet.",color1,color5,color4);
+  } else {
     // Only inject the link if the actor is of type "character" and the user has permission to update it
-    const actor = obj.actor;
-    if (debug)
-      console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.data.type,color1,color4)    
-    if (!(actor.data.type === "character" && actor.can(game.user, "update"))) return;
-    
-    let element = html.find(".window-header .window-title");
-    if (element.length != 1) return;
-    
-      let button = $(`<a class="popout" style><i class="fas fa-flask"></i>HLO</a>`);
-      let userToken = game.settings.get('hlo-importer', 'userToken')
+      const actor = obj.actor;
       if (debug)
-        console.log("%cHLO Importer | %chlo-importer token: "+ userToken,color1,color4)
-      button.on('click', () => beginHLOImport(obj.object,userToken));
-      element.after(button);
+        console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.data.type,color1,color4)    
+      if (!(actor.data.type === "character" && actor.can(game.user, "update"))) return;
+      
+      let element = html.find(".window-header .window-title");
+      if (element.length != 1) return;
+      
+        let button = $(`<a class="popout" style><i class="fas fa-flask"></i>HLO</a>`);
+        let userToken = game.settings.get('hlo-importer', 'userToken')
+        if (debug)
+          console.log("%cHLO Importer | %chlo-importer token: "+ userToken,color1,color4)
+        button.on('click', () => beginHLOImport(obj.object,userToken));
+        element.after(button);
+    }
   }
 );
   
