@@ -11,6 +11,9 @@
     ],
   "styles": [],
   "packs": [],
+  "dependencies": [
+      { "name": "pf2e", "type": "system" }
+  ],
   "url": "https://github.com/zarmstrong/hlo-importer",
   "manifest": "https://raw.githubusercontent.com/zarmstrong/hlo-importer/main/module.json",
   "download": "https://github.com/zarmstrong/hlo-importer/releases/download/hlo-importer-0.3.1/hlo-importer-0.3.1.zip",

@@ -1,3 +1,7 @@
+## 0.3.2 (Apr 30, 2021)
+
+* prevent module from being loaded in other game systems (thanks wildj79)
+
 ## 0.3.1 (Apr 28, 2021)
 
 * fix bug that was preventing error messages from showing
