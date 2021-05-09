@@ -1,3 +1,8 @@
+## 0.3.4 (May 5, 2021)
+
+* Fix minor error in console output
+* Added a setting to enable/disable debug output so source code editing wouldn't be required.
+
 ## 0.3.3 (Apr 30, 2021)
 
 * Method implemented in 0.3.2 to prevent module from being loaded doesn't quite work, even though it should according to the documentation. Added a check in the code to prevent it from working outside of pf2e.

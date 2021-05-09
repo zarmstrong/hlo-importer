@@ -1,5 +1,5 @@
 let debug = false;
-const hloiVer="0.3.3";
+const hloiVer="0.3.4";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -21,6 +21,15 @@ Hooks.on('ready', async function() {
           config : true,
           type : String,
           default : '',
+          onChange: value =>  location.reload()
+      });
+      game.settings.register('hlo-importer', 'debugEnabled', {
+          name : "Enable debug mode",
+          hint : "Debug output will be written to the js console.",
+          scope : 'world',
+          config : true,
+          type: Boolean,
+          default: false,
           onChange: value =>  location.reload()
       });
   }
@@ -220,6 +229,6 @@ function checkHLOCharacterIsCorrect(targetActor,responseJSON){
 }
 
 async function importHLOCharacter(targetActor, charImport){
-  console.log("%cHLO Importer | %c",charImport)  
+  console.log("%cHLO Importer | %c "+charImport,color1,color4)  
   targetActor.importFromJSON(JSON.stringify(charImport))
 }
