@@ -1,3 +1,8 @@
+## 0.4.0 (May 12, 2021)
+
+* Feats that have effects attached to them are now applied to the PC upon import.
+* New tokens will have the appropriate actor ID
+
 ## 0.3.4 (May 5, 2021)
 
 * Fix minor error in console output

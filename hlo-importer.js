@@ -1,5 +1,5 @@
 let debug = false;
-const hloiVer="0.3.4";
+const hloiVer="0.4.0";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -229,6 +229,12 @@ function checkHLOCharacterIsCorrect(targetActor,responseJSON){
 }
 
 async function importHLOCharacter(targetActor, charImport){
-  console.log("%cHLO Importer | %c "+charImport,color1,color4)  
+  
+  importPCID=charImport._id
+  targetPCID=targetActor.data._id
+  charDataStr=JSON.stringify(charImport)
+  charDataStr=charDataStr.replaceAll(importPCID,targetPCID)
+  charImport=JSON.parse(charDataStr)
+  console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4)  
   targetActor.importFromJSON(JSON.stringify(charImport))
 }
