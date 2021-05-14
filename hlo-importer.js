@@ -230,10 +230,10 @@ function checkHLOCharacterIsCorrect(targetActor,responseJSON){
 
 async function importHLOCharacter(targetActor, charImport){
   
-  importPCID=charImport._id
+  importPCID=new RegExp(charImport._id)
   targetPCID=targetActor.data._id
   charDataStr=JSON.stringify(charImport)
-  charDataStr=charDataStr.replaceAll(importPCID,targetPCID)
+  charDataStr=charDataStr.replace(importPCID,targetPCID)
   charImport=JSON.parse(charDataStr)
   console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4)  
   targetActor.importFromJSON(JSON.stringify(charImport))
