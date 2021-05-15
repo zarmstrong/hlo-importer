@@ -1,3 +1,7 @@
+## 0.4.1 (May 15, 2021)
+
+* Fixed incompatability with the Foundry native app (thanks @Drental)
+
 ## 0.4.0 (May 12, 2021)
 
 * Feats that have effects attached to them are now applied to the PC upon import.
