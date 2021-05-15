@@ -230,7 +230,7 @@ function checkHLOCharacterIsCorrect(targetActor,responseJSON){
 
 async function importHLOCharacter(targetActor, charImport){
   
-  importPCID=new RegExp(charImport._id)
+  importPCID=new RegExp(charImport._id, "g")
   targetPCID=targetActor.data._id
   charDataStr=JSON.stringify(charImport)
   charDataStr=charDataStr.replace(importPCID,targetPCID)
