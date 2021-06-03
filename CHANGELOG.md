@@ -1,3 +1,7 @@
+## 0.5.0 (June 3, 2021)
+
+* Support for foundry 0.8.6+ only
+
 ## 0.4.1 (May 15, 2021)
 
 * Fixed incompatability with the Foundry native app (thanks @Drental)

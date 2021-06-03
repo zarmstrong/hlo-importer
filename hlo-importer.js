@@ -44,7 +44,9 @@ Hooks.on('renderActorSheet', function(obj, html){
       const actor = obj.actor;
       if (debug)
         console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.data.type,color1,color4)    
-      if (!(actor.data.type === "character" && actor.can(game.user, "update"))) return;
+        console.log("%cHLO Importer | %cCan user modify: " + actor.canUserModify(game.user, "update"),color1,color4)
+      if (!actor.data.type === "character") return;
+      if (actor.canUserModify(game.user, "update")==false) return;
       
       let element = html.find(".window-header .window-title");
       if (element.length != 1) return;
