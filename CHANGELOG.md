@@ -1,3 +1,12 @@
+## 0.5.2 (June 22, 2021)
+
+* support for foundry 0.8.7
+
+## 0.5.1 (June 18, 2021)
+
+* minify the javascript
+* added function in build code to ensure debug is never deployed
+
 ## 0.5.0 (June 3, 2021)
 
 * Support for foundry 0.8.6+ only

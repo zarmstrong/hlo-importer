@@ -1,5 +1,5 @@
-let debug = false;
-const hloiVer="0.5.0";
+let hlodebug = false;
+const hloiVer="0.5.1";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -42,7 +42,7 @@ Hooks.on('renderActorSheet', function(obj, html){
   } else {
     // Only inject the link if the actor is of type "character" and the user has permission to update it
       const actor = obj.actor;
-      if (debug)
+      if (hlodebug)
         console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.data.type,color1,color4)    
         console.log("%cHLO Importer | %cCan user modify: " + actor.canUserModify(game.user, "update"),color1,color4)
       if (!actor.data.type === "character") return;
@@ -53,7 +53,7 @@ Hooks.on('renderActorSheet', function(obj, html){
       
         let button = $(`<a class="popout" style><i class="fas fa-flask"></i>HLO</a>`);
         let userToken = game.settings.get('hlo-importer', 'userToken')
-        if (debug)
+        if (hlodebug)
           console.log("%cHLO Importer | %chlo-importer token: "+ userToken,color1,color4)
         button.on('click', () => beginHLOImport(obj.object,userToken));
         element.after(button);
@@ -144,15 +144,15 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let responseJSON = JSON.parse(this.responseText);
-        if (debug) 
+        if (hlodebug) 
             console.log("%cHLO Importer | %c"+responseJSON,color1,color4);
         if (responseJSON.hasOwnProperty("error")) {
-          if (debug)
+          if (hlodebug)
              console.log("%cHLO Importer | %cerror found in response",color1,color4)
           error=true
         }
         else
-          if (debug)
+          if (hlodebug)
             console.log("%cHLO Importer | %c"+Object.keys(responseJSON.characterData).length,color1,color4)
 
         if (error){
@@ -173,7 +173,7 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
         }
         else {
           if (Object.keys(responseJSON.characterData).length>1){
-            if (debug)
+            if (hlodebug)
               console.log("%cHLO Importer | %cCalling checkHLOCharacterIsCorrect",color1,color4)
             checkHLOCharacterIsCorrect(targetActor, responseJSON);
           } else {
@@ -185,8 +185,10 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
       // console.log("%cHLO Importer | %creadyState: "+this.readyState,color1,color4)
       }
     };
-    console.log("%cHLO Importer | %cusertoken: " + userToken,color1,color4)
-    console.log("%cHLO Importer | %cPF2e System Version: " + pf2eVersion,color1,color4)
+    if (hlodebug){
+      console.log("%cHLO Importer | %cusertoken: " + userToken,color1,color4)
+      console.log("%cHLO Importer | %cPF2e System Version: " + pf2eVersion,color1,color4)
+    }
     if (userToken == "")
       xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&pf2e="+pf2eVersion+"&hloi="+hloiVer, true);
     else
@@ -196,7 +198,7 @@ function convertHLOCharacter(targetActor, HLOElementID, userToken){
 }
 
 function checkHLOCharacterIsCorrect(targetActor,responseJSON){
-  if (debug){
+  if (hlodebug){
     console.log("%cHLO Importer | %cin checkHLOCharacterIsCorrect",color1,color4)
     console.log("%cHLO Importer | %c"+responseJSON,color1,color4)
   }
@@ -226,12 +228,9 @@ function checkHLOCharacterIsCorrect(targetActor,responseJSON){
       }
     }
   }).render(true);
-
-  
 }
 
 async function importHLOCharacter(targetActor, charImport){
-  
   importPCID=new RegExp(charImport._id, "g")
   targetPCID=targetActor.data._id
   charDataStr=JSON.stringify(charImport)
