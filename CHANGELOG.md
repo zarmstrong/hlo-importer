@@ -1,3 +1,8 @@
+## 0.5.3 (June 23, 2021)
+
+* fixed HLO importer showing up on non-character sheets
+* cleaned up some code
+
 ## 0.5.2 (June 22, 2021)
 
 * support for foundry 0.8.7
