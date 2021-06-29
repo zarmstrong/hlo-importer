@@ -1,3 +1,9 @@
+## 0.6.0 (June 28, 2021)
+
+* This module now integrates with HeroVau.lt and I highly recommend you install it, too!
+* upped compatible version to 0.8.8
+* prevent herolab button from showing if herovault is present and active
+
 ## 0.5.3 (June 23, 2021)
 
 * fixed HLO importer showing up on non-character sheets

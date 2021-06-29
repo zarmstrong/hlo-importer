@@ -5,8 +5,8 @@
   "author": "slate",
   "version": "0.5.3",
   "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.7",
-  "scripts": [ 
+  "compatibleCoreVersion": "0.8.8",
+  "esmodules": [ 
         "hlo-importer.min.js"
     ],
   "styles": [],
