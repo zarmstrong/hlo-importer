@@ -20,6 +20,8 @@
   "license": "MIT",
   "readme": "https://github.com/zarmstrong/hlo-importer",
   "bugs": "https://github.com/zarmstrong/hlo-importer/issues",
-  "allowBugReporter": true,
+  "flags": {
+    "allowBugReporter": true
+  },
   "changelog": "https://github.com/zarmstrong/hlo-importer/blob/main/CHANGELOG.md"  
 }
