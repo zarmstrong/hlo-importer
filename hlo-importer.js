@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.6.0";
+const hloiVer="0.6.1";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -70,7 +70,7 @@ Hooks.on('renderActorSheet', function(obj, html){
 
 async function doHVExport(hero,act) {
   if (game.modules.get('herovaultfoundry')?.active){
-    let {exportToHVFromPBHLO} = await import('../herovaultfoundry/herovault-min.js');
+    let {exportToHVFromPBHLO} = await import('/modules/herovaultfoundry/herovault-min.js');
     if (typeof exportToHVFromPBHLO !== "undefined") {
       exportToHVFromPBHLO(hero,act);
     }

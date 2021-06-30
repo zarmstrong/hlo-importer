@@ -1,3 +1,7 @@
+## 0.6.1 (June 30, 2021)
+
+* change relative paths to absolute for imports
+
 ## 0.6.0 (June 28, 2021)
 
 * This module now integrates with HeroVau.lt and I highly recommend you install it, too!
