@@ -1,6 +1,6 @@
 ## 0.7.1 (June 30, 2021)
 
-* fixed the conenctor I rewrote. forgot to include the change 
+* fixed the connector I rewrote. forgot to include the change 
 
 ## 0.7.0 (June 30, 2021)
 
