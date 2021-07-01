@@ -7,6 +7,7 @@ const color3='color: #ffffff'; //white
 const color4='color: #cccccc'; //gray
 const color5='color: #ff0000'; //red
 var hlo,userToken;
+var hloButton=true;
 
 Hooks.on('ready', async function() {
   if (game.system.id!="pf2e") {
@@ -37,6 +38,12 @@ Hooks.on('ready', async function() {
   userToken=game.settings.get('hlo-importer', 'userToken')
 });
 
+Hooks.on('herovaultfoundryReady', (api) => {
+  if (hlodebug)
+    console.log("Disabling HLO button since herovault is loaded");
+  hloButton=false;
+});
+
 Hooks.on('renderActorSheet', function(obj, html){
   hlodebug = game.settings.get('hlo-importer', 'debugEnabled');
   if (game.system.id!="pf2e") {
@@ -52,7 +59,7 @@ Hooks.on('renderActorSheet', function(obj, html){
       if (!(actor.data.type === "character")){ return;}
       if (actor.canUserModify(game.user, "update")==false){ return;}
       
-      if(!game.modules.get('herovaultfoundry')?.active) {
+      if (hloButton) {
         let element = html.find(".window-header .window-title");
         if (element.length != 1) {return;}
         
@@ -78,6 +85,17 @@ async function doHVExport(hero,act) {
   return;
 }
 
+export function hloShim(targetActor) {
+   let hlo = new HeroLabImporter;
+    hlo.heroVaultPrompt=true;
+    userToken = game.settings.get('hlo-importer', 'userToken');
+    let x = hlo.beginHLOImport(targetActor,userToken);
+}
+
+export function hloActive() {
+  return true;
+}
+
 export class HeroLabImporter {
   constructor(hlodebug) {
     this.color1='color: #7bf542';  //bright green
@@ -88,13 +106,6 @@ export class HeroLabImporter {
     this.hlodebug = hlodebug;
     this.heroVaultExport=false;
     this.heroVaultPrompt=false;
-
-  }
-
-  hloShim(targetActor) {
-    this.heroVaultPrompt=true;
-    userToken = game.settings.get('hlo-importer', 'userToken');
-    let x = this.beginHLOImport(targetActor,userToken);
   }
 
   beginHLOImport(targetActor,userToken){
@@ -293,3 +304,11 @@ export class HeroLabImporter {
     }
   }
 }
+
+Hooks.on('init', () => {
+    game.modules.get('hlo-importer').api = {
+    hloShim: hloShim,
+    hloActive: hloActive
+  };
+  Hooks.callAll('hloimporterReady', game.modules.get('hlo-importer').api);
+});

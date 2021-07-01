@@ -1,3 +1,7 @@
+## 0.7.0 (June 30, 2021)
+
+* rewrote the connectors between hlo importer and herovault to use native api calls instead of janky crap
+
 ## 0.6.2 (June 30, 2021)
 
 * revert previous change
