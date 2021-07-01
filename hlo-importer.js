@@ -77,13 +77,6 @@ Hooks.on('renderActorSheet', function(obj, html){
 
 async function doHVExport(hero,act) {
   game.modules.get('herovaultfoundry')?.api?.exportToHVFromPBHLO(hero,act);
-  // if (game.modules.get('herovaultfoundry')?.active){
-  //   let {exportToHVFromPBHLO} = await import('../herovaultfoundry/herovault-min.js');
-  //   if (typeof exportToHVFromPBHLO !== "undefined") {
-  //     exportToHVFromPBHLO(hero,act);
-  //   }
-  // }  
-  // return;
 }
 
 export function hloShim(targetActor) {
