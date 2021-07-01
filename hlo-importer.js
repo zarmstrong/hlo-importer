@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.6.2";
+const hloiVer="0.7.0";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
