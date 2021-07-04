@@ -301,7 +301,6 @@ export class HeroLabImporter {
       console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4);
       console.log("%cHLO Importer | %c HV export: "+this.heroVaultExport,color1,color4);
     }
-    const items= await targetActor.getEmbeddedCollection('Item');
     await targetActor.deleteEmbeddedDocuments('Item', ["123"],{deleteAll: true});
     targetActor.importFromJSON(JSON.stringify(charImport));
     

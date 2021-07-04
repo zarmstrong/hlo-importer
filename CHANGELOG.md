@@ -1,3 +1,7 @@
+## 0.7.4 (July 3, 2021)
+
+* removed extraneous code
+
 ## 0.7.3 (July 3, 2021)
 
 * fixed a bug that would export the PC to herovault even when the export to herovault box was unchecked.
