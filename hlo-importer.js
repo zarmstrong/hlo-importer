@@ -179,9 +179,11 @@ export class HeroLabImporter {
       close: html => {
         if (applyChanges) {
           let HLOElementID= html.find('[id="textBoxElementID"]')[0].value;
-          console.log(html.find('[id="checkBoxHVExport"]').length)
+
           if (html.find('[id="checkBoxHVExport"]').length) {
-            if (html.find('[id="checkBoxHVExport"]')[0].value=="on")
+            if (hlodebug)
+              console.log("%cHLO Importer | %cevalue of hloexport check: "+html.find('[id="checkBoxHVExport"]')[0].value,color1,color4);
+            if (html.find('[id="checkBoxHVExport"]')[0].checked)
               this.heroVaultExport=true;
           }
 
@@ -295,9 +297,14 @@ export class HeroLabImporter {
     let charDataStr=JSON.stringify(charImport);
     charDataStr=charDataStr.replace(importPCID,targetPCID);
     charImport=JSON.parse(charDataStr);
-    if (hlodebug)
+    if (hlodebug) {
       console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4);
+      console.log("%cHLO Importer | %c HV export: "+this.heroVaultExport,color1,color4);
+    }
+    const items= await targetActor.getEmbeddedCollection('Item');
+    await targetActor.deleteEmbeddedDocuments('Item', ["123"],{deleteAll: true});
     targetActor.importFromJSON(JSON.stringify(charImport));
+    
     if (this.heroVaultExport) {
       if (hlodebug)
         console.log("%cHLO Importer | %cperforming a HeroVau.lt Export",color1,color4);

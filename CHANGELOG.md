@@ -1,3 +1,12 @@
+## 0.7.3 (July 3, 2021)
+
+* fixed a bug that would export the PC to herovault even when the export to herovault box was unchecked.
+* fixed a bug triggered by importing PC over an existing PC
+
+## 0.7.2 (June 30, 2021)
+
+* version bump to fix bad commit
+
 ## 0.7.1 (June 30, 2021)
 
 * fixed the connector I rewrote. forgot to include the change 
