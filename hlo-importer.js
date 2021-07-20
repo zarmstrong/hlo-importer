@@ -185,6 +185,8 @@ export class HeroLabImporter {
               console.log("%cHLO Importer | %cevalue of hloexport check: "+html.find('[id="checkBoxHVExport"]')[0].value,color1,color4);
             if (html.find('[id="checkBoxHVExport"]')[0].checked)
               this.heroVaultExport=true;
+            else
+              this.heroVaultExport=false;
           }
 
           this.convertHLOCharacter(targetActor, HLOElementID,userToken);
