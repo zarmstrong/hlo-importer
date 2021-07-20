@@ -1,3 +1,7 @@
+## 0.7.5 (July 3, 2021)
+
+* fixed bug that would export characters to herovault that weren't supposed to be
+
 ## 0.7.4 (July 3, 2021)
 
 * removed extraneous code
