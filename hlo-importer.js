@@ -263,7 +263,8 @@ export class HeroLabImporter {
   checkHLOCharacterIsCorrect(targetActor,responseJSON){
     if (hlodebug ){
       console.log("%cHLO Importer | %cin checkHLOCharacterIsCorrect",color1,color4);
-      console.log("%cHLO Importer | %c"+responseJSON,color1,color4);
+      console.log("%cHLO Importer | %c",color1,color4);
+      console.log(responseJSON);
     }
     let correctCharacter = false;
     let charImport = responseJSON.characterData;
@@ -271,7 +272,7 @@ export class HeroLabImporter {
     new Dialog({
       title: charImport.name,
       content: `
-        <div><h2>Conversion Log:<br>`+responseJSON.conversionData+`</div><br><div><strong>Continue importing `+charImport.name+`, level `+charImport.data.details.level.value+` `+charImport.data.details.class.value+`?</strong></div><br><br>
+        <div><h2>Conversion Log:<br>`+responseJSON.conversionData+`</div><br><div><strong>Continue importing `+charImport.name+`, level `+charImport.data.details.level.value+` `+charImport.flags.herolabimporter.class+`?</strong></div><br><br>
         `,
       buttons: {
         yes: {
@@ -294,10 +295,10 @@ export class HeroLabImporter {
   }
 
   async importHLOCharacter(targetActor, charImport){
-    let importPCID=new RegExp(charImport._id, "g");
-    let targetPCID=targetActor.data._id;
+    // let importPCID=new RegExp(charImport._id, "g");
+    // let targetPCID=targetActor.data._id;
     let charDataStr=JSON.stringify(charImport);
-    charDataStr=charDataStr.replace(importPCID,targetPCID);
+    // charDataStr=charDataStr.replace(importPCID,targetPCID);
     charImport=JSON.parse(charDataStr);
     if (hlodebug) {
       console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4);

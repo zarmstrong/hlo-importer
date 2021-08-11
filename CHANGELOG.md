@@ -1,3 +1,7 @@
+## 0.8.0 (August 11, 2021)
+
+* updated codebase for PF2e 2.11. All users are required to upgrade as there are breaking changes
+
 ## 0.7.5 (July 20, 2021)
 
 * fixed bug that would export characters to herovault that weren't supposed to be
