@@ -1,5 +1,6 @@
 let hlodebug = false;
-const hloiVer="0.8.0";
+const hloiVer="0.8.1";
+let herolabURL="https://www.pf2player.com";
 
 const color1='color: #7bf542';  //bright green
 const color2='color: #d8eb34'; //yellow green
@@ -8,6 +9,12 @@ const color4='color: #cccccc'; //gray
 const color5='color: #ff0000'; //red
 var hlo,userToken;
 var hloButton=true;
+if (location.protocol !== "https:") {
+  herolabURL = "http://www.pf2player.com";
+  // if (game.user.isGM)
+  //   ui.notifications.info("GM: Please set your server to use HTTPS. For instructions see (coming soon).");  
+  // ui.notifications.info("Herolab Online Importer using insecure HTTP mode.");
+}
 
 Hooks.on('ready', async function() {
   if (game.system.id!="pf2e") {
@@ -252,10 +259,10 @@ export class HeroLabImporter {
         console.log("%cHLO Importer | %cPF2e System Version: " + pf2eVersion,color1,color4);
       }
       if (userToken == "") {
-        xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&pf2e="+pf2eVersion+"&hloi="+hloiVer, true);
+        xmlhttp.open("GET", herolabURL + "/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&pf2e="+pf2eVersion+"&hloi="+hloiVer, true);
       }
       else {
-        xmlhttp.open("GET", "https://www.pf2player.com/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&pf2e="+pf2eVersion+"&hloi="+hloiVer+"&userToken="+encodeURIComponent(userToken), true);
+        xmlhttp.open("GET", herolabURL + "/foundrymodule.php?elementID="+encodeURIComponent(HLOElementID)+"&pf2e="+pf2eVersion+"&hloi="+hloiVer+"&userToken="+encodeURIComponent(userToken), true);
       }
       xmlhttp.send();
   }
