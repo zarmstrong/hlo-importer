@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.8.1";
+const hloiVer="0.8.2";
 let herolabURL="https://www.pf2player.com";
 
 const color1='color: #7bf542';  //bright green
@@ -11,9 +11,6 @@ var hlo,userToken;
 var hloButton=true;
 if (location.protocol !== "https:") {
   herolabURL = "http://www.pf2player.com";
-  // if (game.user.isGM)
-  //   ui.notifications.info("GM: Please set your server to use HTTPS. For instructions see (coming soon).");  
-  // ui.notifications.info("Herolab Online Importer using insecure HTTP mode.");
 }
 
 Hooks.on('ready', async function() {
@@ -311,9 +308,26 @@ export class HeroLabImporter {
       console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4);
       console.log("%cHLO Importer | %c HV export: "+this.heroVaultExport,color1,color4);
     }
+    if (hlodebug)
+      console.log("%cHLO Importer | %c checking for crafting:"+ charImport.data.hasOwnProperty("crafting"),color1,color4)
+    if (!charImport.data.hasOwnProperty("crafting")) {
+      if (hlodebug)
+        console.log("%cHLO Importer | %c Adding crafting block to PC",color1,color4);
+      var crafting = { formulas: [] }
+      charImport.data.crafting=crafting
+    }
+
     await targetActor.deleteEmbeddedDocuments('Item', ["123"],{deleteAll: true});
-    targetActor.importFromJSON(JSON.stringify(charImport));
-    
+    await targetActor.importFromJSON(JSON.stringify(charImport));
+
+
+    targetActor.update({
+      "flags.exportSource.world": game.world.id,
+      "flags.exportSource.system": game.system.id,
+      "flags.exportSource.systemVersion": game.system.data.version,
+      "flags.exportSource.coreVersion": game.data.version,
+      "flags.herolabimporter.version.value": hloiVer,
+    });
     if (this.heroVaultExport) {
       if (hlodebug)
         console.log("%cHLO Importer | %cperforming a HeroVau.lt Export",color1,color4);
