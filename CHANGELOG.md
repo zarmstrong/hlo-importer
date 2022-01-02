@@ -1,3 +1,11 @@
+## 0.8.3 (Jan 1, 2022)
+
+* fix permissions on import
+
+## 0.8.2 (October 10, 2021)
+
+* updated codebase for PF2e 2.15. 
+
 ## 0.8.1 (August 21, 2021)
 
 * update for 0.8.9 compatability

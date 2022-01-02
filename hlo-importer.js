@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.8.2";
+const hloiVer="0.8.3";
 let herolabURL="https://www.pf2player.com";
 
 const color1='color: #7bf542';  //bright green
@@ -316,10 +316,10 @@ export class HeroLabImporter {
       var crafting = { formulas: [] }
       charImport.data.crafting=crafting
     }
-
+    let oldPermissions =targetActor.data.permission;
+    charImport.permission = oldPermissions;
     await targetActor.deleteEmbeddedDocuments('Item', ["123"],{deleteAll: true});
     await targetActor.importFromJSON(JSON.stringify(charImport));
-
 
     targetActor.update({
       "flags.exportSource.world": game.world.id,
