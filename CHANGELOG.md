@@ -1,3 +1,7 @@
+## 0.8.4 (Mar 26, 2022)
+
+* prevent module from showing up in non-pf2e systems
+
 ## 0.8.3 (Jan 1, 2022)
 
 * fix permissions on import
