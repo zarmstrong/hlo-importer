@@ -1,3 +1,7 @@
+## 0.8.5 (May 25, 2022)
+
+* no code change, just updated the module to show compatability with v9
+
 ## 0.8.4 (Mar 26, 2022)
 
 * prevent module from showing up in non-pf2e systems
