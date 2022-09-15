@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.10.0";
+const hloiVer="0.10.1";
 let herolabURL="https://www.pf2player.com";
 
 const color1='color: #7bf542';  //bright green

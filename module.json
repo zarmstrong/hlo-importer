@@ -12,11 +12,10 @@
       "ko-fi": "SLATE"
     }
   ],
-  "version": "0.10.0",
+  "version": "0.10.1",
   "compatibility": {
-    "minimum": "10.284",
-    "verified": "10.285",
-    "maximum": "10"
+    "minimum": "10",
+    "verified": "10.285"
   },
   "relationship": {
     "systems": [
@@ -38,7 +37,7 @@
   "packs": [],
   "url": "https://github.com/zarmstrong/hlo-importer",
   "manifest": "https://raw.githubusercontent.com/zarmstrong/hlo-importer/main/module.json",
-  "download": "https://github.com/zarmstrong/hlo-importer/releases/download/hlo-importer-0.10.0/hlo-importer-0.10.0.zip",
+  "download": "https://github.com/zarmstrong/hlo-importer/releases/download/hlo-importer-0.10.1/hlo-importer-0.10.1.zip",
   "license": "MIT",
   "readme": "https://github.com/zarmstrong/hlo-importer",
   "bugs": "https://github.com/zarmstrong/hlo-importer/issues",
