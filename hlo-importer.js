@@ -1,5 +1,5 @@
 let hlodebug = false;
-const hloiVer="0.8.5";
+const hloiVer="0.10.0";
 let herolabURL="https://www.pf2player.com";
 
 const color1='color: #7bf542';  //bright green
@@ -56,11 +56,11 @@ Hooks.on('renderActorSheet', function(obj, html){
     // Only inject the link if the actor is of type "character" and the user has permission to update it
       const actor = obj.actor;
       if (hlodebug) {
-        console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.data.type,color1,color4);
+        console.log("%cHLO Importer | %cPF2e System Version: hlo-importer actor type: " + actor.type,color1,color4);
         console.log("%cHLO Importer | %cCan user modify: " + actor.canUserModify(game.user, "update"),color1,color4);
       }
 
-      if (!(actor.data.type === "character")){ return;}
+      if (!(actor.type === "character")){ return;}
       if (actor.canUserModify(game.user, "update")==false){ return;}
       
       if (hloButton) {
@@ -201,7 +201,7 @@ export class HeroLabImporter {
   }
 
   convertHLOCharacter(targetActor, HLOElementID, userToken){
-      const pf2eVersion=game.data.system.data.version;
+      const pf2eVersion=game.system.version;
       let error=false;
       var self=this;
       var xmlhttp = new XMLHttpRequest();
@@ -276,7 +276,7 @@ export class HeroLabImporter {
     new Dialog({
       title: charImport.name,
       content: `
-        <div><h2>Conversion Log:<br>`+responseJSON.conversionData+`</div><br><div><strong>Continue importing `+charImport.name+`, level `+charImport.data.details.level.value+` `+charImport.flags.herolabimporter.class+`?</strong></div><br><br>
+        <div><h2>Conversion Log:<br>`+responseJSON.conversionData+`</div><br><div><strong>Continue importing `+charImport.name+`, level `+charImport.system.details.level.value+` `+charImport.flags.herolabimporter.class+`?</strong></div><br><br>
         `,
       buttons: {
         yes: {
@@ -308,24 +308,22 @@ export class HeroLabImporter {
       console.log("%cHLO Importer | %c Importing "+charImport.name,color1,color4);
       console.log("%cHLO Importer | %c HV export: "+this.heroVaultExport,color1,color4);
     }
-    if (hlodebug)
-      console.log("%cHLO Importer | %c checking for crafting:"+ charImport.data.hasOwnProperty("crafting"),color1,color4)
-    if (!charImport.data.hasOwnProperty("crafting")) {
-      if (hlodebug)
-        console.log("%cHLO Importer | %c Adding crafting block to PC",color1,color4);
-      var crafting = { formulas: [] }
-      charImport.data.crafting=crafting
-    }
-    let oldPermissions =targetActor.data.permission;
+    let oldPermissions =targetActor.permission;
     charImport.permission = oldPermissions;
-    await targetActor.deleteEmbeddedDocuments('Item', ["123"],{deleteAll: true});
-    await targetActor.importFromJSON(JSON.stringify(charImport));
+    if (hlodebug)
+      console.log("%cHLO Importer | %c deleting embedded documents",color1,color4)
 
+    await targetActor.deleteEmbeddedDocuments('Item', [],{deleteAll: true});
+    if (hlodebug)
+      console.log("%cHLO Importer | %c running importFromJSON",color1,color4)
+    await targetActor.importFromJSON(JSON.stringify(charImport));
+    if (hlodebug)
+      console.log("%cHLO Importer | %c importFromJSON complete",color1,color4)
     targetActor.update({
       "flags.exportSource.world": game.world.id,
       "flags.exportSource.system": game.system.id,
-      "flags.exportSource.systemVersion": game.system.data.version,
-      "flags.exportSource.coreVersion": game.data.version,
+      "flags.exportSource.systemVersion": game.system.version,
+      "flags.exportSource.coreVersion": game.version,
       "flags.herolabimporter.version.value": hloiVer,
     });
     if (this.heroVaultExport) {

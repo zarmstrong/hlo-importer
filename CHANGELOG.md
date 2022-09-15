@@ -1,3 +1,7 @@
+## 0.10.0 (Septemper 15, 2022)
+
+* overhauled for Foundry v10 and pf2e 4.x
+
 ## 0.8.5 (May 25, 2022)
 
 * no code change, just updated the module to show compatability with v9
