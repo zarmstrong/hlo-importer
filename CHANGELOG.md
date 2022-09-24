@@ -1,4 +1,8 @@
-## 0.10.0 (Septemper 15, 2022)
+## 0.10.1 (September 15, 2022)
+
+* minor change to compatability info
+
+## 0.10.0 (September 15, 2022)
 
 * overhauled for Foundry v10 and pf2e 4.x
 

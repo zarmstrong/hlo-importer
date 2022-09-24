@@ -15,8 +15,10 @@
   "version": "0.10.1",
   "compatibility": {
     "minimum": "10",
-    "verified": "10.285"
+    "verified": "10.285",
+    "maximum": "10"
   },
+  "compatibleCoreVersion": "10",
   "relationship": {
     "systems": [
       {
